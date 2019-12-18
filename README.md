@@ -11,7 +11,7 @@ configuration.
 ### Using Docker
 
 ```
-docker build -t quartus171 https://github.com/DwaineGarden/Quartus_MiSTer_build.git . --network=host -t quartus171
+docker build https://github.com/DwaineGarden/Quartus_MiSTer_build.git . --network=host -t quartus171
 docker run -it --rm --net=host -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY -v /etc/machine-id:/etc/machine-id quartus171
 ```
 
