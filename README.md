@@ -1,6 +1,5 @@
 # Quartus_MiSTer_build
-Docker for building MiSTer Cores
-[MiSTer](https://github.com/MiSTer-devel)
+Docker for building [MiSTer](https://github.com/MiSTer-devel) Cores
 
 ## Description
 
