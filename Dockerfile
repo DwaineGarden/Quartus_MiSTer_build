@@ -7,7 +7,8 @@
 # docker run -it --rm --net=host -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY -v /etc/machine-id:/etc/machine-id quartus181
 # =-=-==-=-=-=-=-=-=-=-=-=-=-=-=-==-=-==-=-
 
-FROM ubuntu_base:latest
+#FROM ubuntu_base:latest
+FROM ummidock/ubuntu_base
 MAINTAINER Eva Calvo <eva.calvo.giraldo@cern.ch>
 
 # =-=-==-=-=-=-  COPY THE INSTALLATION FILES  =-=-==-=-=-=-
