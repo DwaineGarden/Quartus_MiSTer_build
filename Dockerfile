@@ -8,7 +8,7 @@
 # =-=-==-=-=-=-=-=-=-=-=-=-=-=-=-==-=-==-=-
 
 #FROM ubuntu_base:latest
-FROM ubuntu
+FROM ubuntu:latest
 MAINTAINER Eva Calvo <eva.calvo.giraldo@cern.ch>
 
 # =-=-==-=-=-=-  COPY THE INSTALLATION FILES  =-=-==-=-=-=-
