@@ -17,7 +17,7 @@ MAINTAINER Eva Calvo <eva.calvo.giraldo@cern.ch>
 # One can download them and storem them in the folder with the
 # Docker_files, so that they will be copied and run into the docker image.
 
-ADD /home/QuartusSetup-17.1.0.590-linux.run /home/cyclone-17.1.0.590.qdz /tmp/
+ADD ./QuartusSetup-17.1.0.590-linux.run ./cyclone-17.1.0.590.qdz /tmp/
 
 # Change rights so that the user can run it
 RUN cd /tmp && \
