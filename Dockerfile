@@ -20,7 +20,9 @@ MAINTAINER Dwaine P Garden <DwaineGarden@rogers.com>
 # ADD home/QuartusSetup-17.1.0.590-linux.run home/cyclone-17.1.0.590.qdz /tmp/
 RUN cd /tmp && \
     apt-get -qq update && \
-    apt-get -qq -y install wget && \
+    apt-get -qq -y install wget git && \
+    cd /usr/src && \
+    git clone https://github.com/MiSTer-devel/Main_MiSTer.git && \
     wget http://download.altera.com/akdlm/software/acdsinst/17.1std/590/ib_installers/QuartusSetup-17.1.0.590-linux.run && \
     wget http://download.altera.com/akdlm/software/acdsinst/17.1std/590/ib_installers/cyclone-17.1.0.590.qdz
     
