@@ -19,7 +19,6 @@ MAINTAINER Eva Calvo <eva.calvo.giraldo@cern.ch>
 
 # ADD home/QuartusSetup-17.1.0.590-linux.run home/cyclone-17.1.0.590.qdz /tmp/
 RUN cd /tmp && \
-    apt-get install wget && \
     curl -SL http://download.altera.com/akdlm/software/acdsinst/17.1std/590/ib_installers/QuartusSetup-17.1.0.590-linux.run && \
     curl -SL http://download.altera.com/akdlm/software/acdsinst/17.1std/590/ib_installers/cyclone-17.1.0.590.qdz
     
