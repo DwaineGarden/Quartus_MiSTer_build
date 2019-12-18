@@ -9,7 +9,7 @@
 
 #FROM ubuntu_base:latest
 FROM ubuntu:latest
-MAINTAINER Eva Calvo <eva.calvo.giraldo@cern.ch>
+MAINTAINER Dwaine P Garden <DwaineGarden@rogers.com>
 
 # =-=-==-=-=-=-  COPY THE INSTALLATION FILES  =-=-==-=-=-=-
 # To install quartus we need the installer files. 
@@ -34,7 +34,7 @@ RUN cd /tmp && \
 # Install as the user (Not sure if this absolutely required, but just in case)
 # If the root can also install it, then no need to copy the file, access it from a host shared folder
 
-USER developer
+USER root
 RUN  /tmp/QuartusSetup-17.1.0.590-linux.run --mode unattended --accept_eula 1
 
 # =-=-==-=-=-=-  REMOVE FILES TO SAVE IMAGE SPACE  =-=-==-=-=-=-
@@ -48,7 +48,7 @@ RUN    rm /home/developer/intelFPGA/17.1/uninstall -rf &&\
 # =-=-==-=-=-=-  SETUP ENV VARIABLES  =-=-==-=-=-=-
 # Setup the required variables:
 
-USER developer
+USER root
 ENV    ALTERAPATH=/home/developer/intelFPGA/17.1                                     \
        ALTERAOCLSDKROOT=/home/developer/intelFPGA/17.1/hld                           \
        QUARTUS_ROOTDIR=/home/developer/intelFPGA/17.1/quartus                        \
