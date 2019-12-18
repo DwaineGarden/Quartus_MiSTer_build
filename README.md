@@ -25,7 +25,7 @@ new kernel and the new config are copied out to the bind mounted volume on
 ### Using Docker
 
 ```
-docker build -t mister_kernel https://github.com/DwaineGarden/Linux-Kernel_MiSTer_build.git
+docker build -t mister_kernel https://github.com/DwaineGarden/Quartus_MiSTer_build.git
 docker run -v $(pwd):/mnt -ti mister_kernel
 ```
 
