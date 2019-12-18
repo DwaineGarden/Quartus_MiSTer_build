@@ -8,7 +8,7 @@
 # =-=-==-=-=-=-=-=-=-=-=-=-=-=-=-==-=-==-=-
 
 #FROM ubuntu_base:latest
-FROM ummidock/ubuntu_base
+FROM ubuntu
 MAINTAINER Eva Calvo <eva.calvo.giraldo@cern.ch>
 
 # =-=-==-=-=-=-  COPY THE INSTALLATION FILES  =-=-==-=-=-=-
