@@ -20,9 +20,9 @@ MAINTAINER Eva Calvo <eva.calvo.giraldo@cern.ch>
 # ADD home/QuartusSetup-17.1.0.590-linux.run home/cyclone-17.1.0.590.qdz /tmp/
 RUN cd /tmp && \
     apt-get -qq update && \
-    apt-get -qq -y install curl && \
-    curl -SL http://download.altera.com/akdlm/software/acdsinst/17.1std/590/ib_installers/QuartusSetup-17.1.0.590-linux.run && \
-    curl -SL http://download.altera.com/akdlm/software/acdsinst/17.1std/590/ib_installers/cyclone-17.1.0.590.qdz
+    apt-get -qq -y install wget && \
+    wget http://download.altera.com/akdlm/software/acdsinst/17.1std/590/ib_installers/QuartusSetup-17.1.0.590-linux.run && \
+    wget http://download.altera.com/akdlm/software/acdsinst/17.1std/590/ib_installers/cyclone-17.1.0.590.qdz
     
 
 # Change rights so that the user can run it
