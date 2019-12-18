@@ -18,11 +18,11 @@ MAINTAINER Dwaine P Garden <DwaineGarden@rogers.com>
 # Docker_files, so that they will be copied and run into the docker image.
 
 # ADD home/QuartusSetup-17.1.0.590-linux.run home/cyclone-17.1.0.590.qdz /tmp/
-RUN cd /tmp && \
-    apt-get -qq update && \
+RUN apt-get -qq update && \
     apt-get -qq -y install wget git && \
     cd /usr/src && \
     git clone https://github.com/MiSTer-devel/Main_MiSTer.git && \
+    cd /tmp && \
     wget http://download.altera.com/akdlm/software/acdsinst/17.1std/590/ib_installers/QuartusSetup-17.1.0.590-linux.run && \
     wget http://download.altera.com/akdlm/software/acdsinst/17.1std/590/ib_installers/cyclone-17.1.0.590.qdz
     
