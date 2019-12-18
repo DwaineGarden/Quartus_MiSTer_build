@@ -17,7 +17,11 @@ MAINTAINER Eva Calvo <eva.calvo.giraldo@cern.ch>
 # One can download them and storem them in the folder with the
 # Docker_files, so that they will be copied and run into the docker image.
 
-ADD home/QuartusSetup-17.1.0.590-linux.run home/cyclone-17.1.0.590.qdz /tmp/
+# ADD home/QuartusSetup-17.1.0.590-linux.run home/cyclone-17.1.0.590.qdz /tmp/
+RUN cd /tmp && \
+    wget http://download.altera.com/akdlm/software/acdsinst/17.1std/590/ib_installers/QuartusSetup-17.1.0.590-linux.run && \
+    wget http://download.altera.com/akdlm/software/acdsinst/17.1std/590/ib_installers/cyclone-17.1.0.590.qdz
+    
 
 # Change rights so that the user can run it
 RUN cd /tmp && \
