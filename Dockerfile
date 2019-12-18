@@ -43,7 +43,7 @@ RUN  /tmp/QuartusSetup-17.1.0.590-linux.run --mode unattended --accept_eula 1
 # Do not forget to clean up to save some storage space
 
 USER root
-RUN    rm /home/developer/intelFPGA/17.1/uninstall -rf &&\
+RUN    rm /root/intelFPGA/17.1/uninstall -rf &&\
        apt-get clean &&\
        rm /tmp/QuartusSetup-17.1.0.590-linux.run
 
@@ -51,21 +51,21 @@ RUN    rm /home/developer/intelFPGA/17.1/uninstall -rf &&\
 # Setup the required variables:
 
 USER root
-ENV    ALTERAPATH=/home/developer/intelFPGA/17.1                                     \
-       ALTERAOCLSDKROOT=/home/developer/intelFPGA/17.1/hld                           \
-       QUARTUS_ROOTDIR=/home/developer/intelFPGA/17.1/quartus                        \
-       QUARTUS_ROOTDIR_OVERRIDE=/home/developer/intelFPGA/17.1/quartus               \
-       QSYS_ROOTDIR=/home/developer/intelFPGA/17.1/quartus/sopc_builder/bin          \
-       SOPC_KIT_NIOS2=/home/developer/intelFPGA/17.1/nios2eds                        \
-       LD_LIBRARY_PATH=/home/developer/intelFPGA/17.1/quartus/linux64                \
+ENV    ALTERAPATH=/root/intelFPGA/17.1                                     \
+       ALTERAOCLSDKROOT=/root/intelFPGA/17.1/hld                           \
+       QUARTUS_ROOTDIR=/root/intelFPGA/17.1/quartus                        \
+       QUARTUS_ROOTDIR_OVERRIDE=/root/intelFPGA/17.1/quartus               \
+       QSYS_ROOTDIR=/root/intelFPGA/17.1/quartus/sopc_builder/bin          \
+       SOPC_KIT_NIOS2=/root/intelFPGA/17.1/nios2eds                        \
+       LD_LIBRARY_PATH=/root/intelFPGA/17.1/quartus/linux64                \
        QUARTUS_64BIT=1                                                            \
        LM_LICENSE_FILE=1800@lxlicen01,1800@lxlicen02,1800@lxlicen03
 
 # Setup the PATH:
-RUN    echo "PATH=$PATH:/home/developer/intelFPGA/17.1/quartus/bin:/home/developer/intelFPGA/17.1/nios2eds/bin:/home/developer/intelFPGA/17.1/quartus" >> /home/developer/.bashrc &&\
+RUN    echo "PATH=$PATH:/root/intelFPGA/17.1/quartus/bin:/root/intelFPGA/17.1/nios2eds/bin:/root/intelFPGA/17.1/quartus" >> /root/.bashrc &&\
 
 #Some websites claim that these files conflict with the Ubuntu versions and cause random segfaults.
-       cd /home/developer/intelFPGA/17.1/quartus/linux64 &&\
+       cd /root/intelFPGA/17.1/quartus/linux64 &&\
 #      mv libstdc++.so libstdc++.so_ori &&\
        mv libstdc++.so.6 libstdc++.so.6_bak &&\
 #      mv libccl_curl_drl.so libccl_curl_drl.so_bak &&\
