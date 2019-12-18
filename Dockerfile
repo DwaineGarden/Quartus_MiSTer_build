@@ -17,7 +17,7 @@ MAINTAINER Eva Calvo <eva.calvo.giraldo@cern.ch>
 # One can download them and storem them in the folder with the
 # Docker_files, so that they will be copied and run into the docker image.
 
-ADD QuartusSetup-18.1.0.625-linux.run  cyclone-18.1.0.625.qdz /tmp/
+ADD /home/QuartusSetup-17.1.0.590-linux.run /home/cyclone-17.1.0.590.qdz /tmp/
 
 # Change rights so that the user can run it
 RUN cd /tmp && \
@@ -29,35 +29,35 @@ RUN cd /tmp && \
 # If the root can also install it, then no need to copy the file, access it from a host shared folder
 
 USER developer
-RUN  /tmp/QuartusSetup-18.1.0.625-linux.run --mode unattended --accept_eula 1
+RUN  /tmp/QuartusSetup-17.1.0.590-linux.run --mode unattended --accept_eula 1
 
 # =-=-==-=-=-=-  REMOVE FILES TO SAVE IMAGE SPACE  =-=-==-=-=-=-
 # Do not forget to clean up to save some storage space
 
 USER root
-RUN    rm /home/developer/intelFPGA/18.1/uninstall -rf &&\
+RUN    rm /home/developer/intelFPGA/17.1/uninstall -rf &&\
        apt-get clean &&\
-       rm /tmp/QuartusSetup-18.1.0.625-linux.run
+       rm /tmp/QuartusSetup-17.1.0.590-linux.run
 
 # =-=-==-=-=-=-  SETUP ENV VARIABLES  =-=-==-=-=-=-
 # Setup the required variables:
 
 USER developer
-ENV    ALTERAPATH=/home/developer/intelFPGA/18.1                                     \
-       ALTERAOCLSDKROOT=/home/developer/intelFPGA/18.1/hld                           \
-       QUARTUS_ROOTDIR=/home/developer/intelFPGA/18.1/quartus                        \
-       QUARTUS_ROOTDIR_OVERRIDE=/home/developer/intelFPGA/18.1/quartus               \
-       QSYS_ROOTDIR=/home/developer/intelFPGA/18.1/quartus/sopc_builder/bin          \
-       SOPC_KIT_NIOS2=/home/developer/intelFPGA/18.1/nios2eds                        \
-       LD_LIBRARY_PATH=/home/developer/intelFPGA/18.1/quartus/linux64                \
+ENV    ALTERAPATH=/home/developer/intelFPGA/17.1                                     \
+       ALTERAOCLSDKROOT=/home/developer/intelFPGA/17.1/hld                           \
+       QUARTUS_ROOTDIR=/home/developer/intelFPGA/17.1/quartus                        \
+       QUARTUS_ROOTDIR_OVERRIDE=/home/developer/intelFPGA/17.1/quartus               \
+       QSYS_ROOTDIR=/home/developer/intelFPGA/17.1/quartus/sopc_builder/bin          \
+       SOPC_KIT_NIOS2=/home/developer/intelFPGA/17.1/nios2eds                        \
+       LD_LIBRARY_PATH=/home/developer/intelFPGA/17.1/quartus/linux64                \
        QUARTUS_64BIT=1                                                            \
        LM_LICENSE_FILE=1800@lxlicen01,1800@lxlicen02,1800@lxlicen03
 
 # Setup the PATH:
-RUN    echo "PATH=$PATH:/home/developer/intelFPGA/18.1/quartus/bin:/home/developer/intelFPGA/18.1/nios2eds/bin:/home/developer/intelFPGA/18.1/quartus" >> /home/developer/.bashrc &&\
+RUN    echo "PATH=$PATH:/home/developer/intelFPGA/17.1/quartus/bin:/home/developer/intelFPGA/17.1/nios2eds/bin:/home/developer/intelFPGA/17.1/quartus" >> /home/developer/.bashrc &&\
 
 #Some websites claim that these files conflict with the Ubuntu versions and cause random segfaults.
-       cd /home/developer/intelFPGA/18.1/quartus/linux64 &&\
+       cd /home/developer/intelFPGA/17.1/quartus/linux64 &&\
 #      mv libstdc++.so libstdc++.so_ori &&\
        mv libstdc++.so.6 libstdc++.so.6_bak &&\
 #      mv libccl_curl_drl.so libccl_curl_drl.so_bak &&\
